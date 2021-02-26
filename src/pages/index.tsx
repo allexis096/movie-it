@@ -1,20 +1,28 @@
-import { ExperienceBar } from '../components/ExperienceBar';
+import Head from 'next/head';
+import CompletedChallenges from '../components/completedChallenges';
+import Countdown from '../components/countdown';
+import ExperienceBar from '../components/experienceBar';
+import Profile from '../components/profile';
+
+import * as S from '../styles/pages/';
 
 export default function Home() {
   return (
-    <>
-      <div
-        style={{
-          height: '100vh',
-          maxWidth: '992px',
-          margin: '0 auto',
-          padding: '2.5rem 2rem',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
-        <ExperienceBar />
-      </div>
-    </>
+    <S.Container>
+      <Head>
+        <title>Inicio | movie.it</title>
+      </Head>
+
+      <ExperienceBar />
+
+      <S.Section>
+        <S.LeftBar>
+          <Profile />
+          <CompletedChallenges />
+          <Countdown />
+        </S.LeftBar>
+        <div></div>
+      </S.Section>
+    </S.Container>
   );
 }

@@ -1,6 +1,6 @@
-import * as S from '../styles/components/ExperienceBar';
+import * as S from '../styles/components/experienceBar';
 
-export function ExperienceBar() {
+export default function ExperienceBar() {
   return (
     <S.Experience>
       <span>0 xp</span>
