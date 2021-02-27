@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+type CountdownButtonsProps = {
+  active?: boolean;
+};
 
 export const Container = styled.div`
   display: flex;
@@ -37,7 +41,7 @@ export const Time = styled.div`
   }
 `;
 
-export const CountdownButton = styled.button`
+export const CountdownButton = styled.button<CountdownButtonsProps>`
   width: 100%;
   height: 5rem;
 
@@ -57,7 +61,25 @@ export const CountdownButton = styled.button`
   font-weight: 600;
 
   transition: background-color 0.2s;
-  &:hover {
+  &:not(:disabled):hover {
     background: var(--blue-dark);
   }
+
+  &:disabled {
+    background: var(--white);
+    color: var(--text);
+    cursor: not-allowed;
+  }
+
+  ${(props) =>
+    props.active &&
+    css`
+      background: var(--white);
+      color: var(--title);
+
+      &:not(:disabled):hover {
+        background: var(--red);
+        color: var(--white);
+      }
+    `}
 `;
